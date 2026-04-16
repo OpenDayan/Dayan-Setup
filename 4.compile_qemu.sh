@@ -9,4 +9,5 @@ make -j$(nproc)
 echo "编译完成，拷贝产物到 bin 目录"
 popd
 popd
+mkdir -p ./bin
 cp ./workspace/npu-qemu/build/dl-riscv64 ./bin/
