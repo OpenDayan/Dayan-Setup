@@ -1,0 +1,12 @@
+[submodule "workspace/npu-qemu"]
+	path = workspace/npu-qemu
+	url = https://github.com/OpenRVT/npu-qemu.git
+[submodule "workspace/rvtng-cmodel"]
+	path = workspace/rvtng-cmodel
+	url = https://github.com/OpenRVT/rvtng-cmodel.git
+[submodule "workspace/npu-kernels"]
+	path = workspace/npu-kernels
+	url = https://github.com/OpenRVT/npu-kernels.git
+[submodule "workspace/npu-firmware"]
+	path = workspace/npu-firmware
+	url = https://github.com/OpenRVT/npu-firmware.git
