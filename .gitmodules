@@ -10,3 +10,6 @@
 [submodule "workspace/npu-firmware"]
 	path = workspace/npu-firmware
 	url = https://gitservice.cstcloud.cn/r-project/npu-firmware.git
+[submodule "workspace/npu-runtime"]
+	path = workspace/npu-runtime
+	url = https://gitservice.cstcloud.cn/r-project/npu-runtime.git
