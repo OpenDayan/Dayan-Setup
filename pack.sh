@@ -17,10 +17,10 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "已暂存变更:"
     git --no-pager diff --cached --stat
     echo ""
-    ARCHIVE_NAME="rvnpu-${COMMIT_DATE}-${COMMIT_HASH}-dirty.tar.zst"
+    ARCHIVE_NAME="rvnpu-${COMMIT_DATE}-${COMMIT_HASH}-dirty.tar.gz"
 else
     echo "当前提交: $COMMIT_HASH（干净）"
-    ARCHIVE_NAME="rvnpu-${COMMIT_DATE}-${COMMIT_HASH}.tar.zst"
+    ARCHIVE_NAME="rvnpu-${COMMIT_DATE}-${COMMIT_HASH}.tar.gz"
 fi
 
 PACK_DIR="packed"
@@ -80,15 +80,15 @@ echo "[5/7] 运行 clean.sh 清理构建产物..."
 echo "[6/7] 设置脚本可执行权限..."
 chmod +x "$PACK_DIR"/*.sh 2>/dev/null || true
 
-# 7. 多线程压缩为 .tar.zst（不包含 packed/ 层级）
-echo "[7/7] 压缩为 .tar.zst（多线程）..."
-tar -c -C "$PACK_DIR" . | zstd -T0 > "$ARCHIVE_NAME"
+# 7. 多线程压缩为 .tar.gz（不包含 packed/ 层级）
+echo "[7/7] 压缩为 .tar.gz（pigz 多线程）..."
+tar -c -C "$PACK_DIR" . | pigz > "$ARCHIVE_NAME"
 
 # 打印压缩包内容
 echo ""
 echo "压缩包内容:"
-tar --zstd -tf "$ARCHIVE_NAME" | head -10
-FILE_COUNT=$(tar --zstd -tf "$ARCHIVE_NAME" | wc -l)
+pigz -dc "$ARCHIVE_NAME" | tar -tf - | head -10
+FILE_COUNT=$(pigz -dc "$ARCHIVE_NAME" | tar -tf - | wc -l)
 echo "... 共 $FILE_COUNT 个文件/目录"
 echo ""
 echo "========================================="
@@ -97,7 +97,7 @@ echo "========================================="
 echo "输出目录: $PACK_DIR/"
 echo "压缩包:   $ARCHIVE_NAME"
 echo ""
-echo "解压方式: tar --zstd -xf $ARCHIVE_NAME"
+echo "解压方式: pigz -dc $ARCHIVE_NAME | tar -xf -"
 echo ""
 echo "目录结构:"
 find "$PACK_DIR" -maxdepth 2 -not -path '*/\.*' | sort

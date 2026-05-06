@@ -3,3 +3,4 @@ bin
 /packed
 *.tar.zst
 operator_stats.json
+*.gz
