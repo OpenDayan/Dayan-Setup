@@ -7,6 +7,7 @@ echo "========================================="
 
 # 0. 检查 git 状态，决定包名
 COMMIT_HASH=$(git rev-parse --short HEAD)
+COMMIT_DATE=$(date +%Y.%m.%d)
 if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "警告：工作目录不干净，包名将标记为 dirty。"
     echo ""
@@ -16,10 +17,10 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "已暂存变更:"
     git --no-pager diff --cached --stat
     echo ""
-    ARCHIVE_NAME="rvnpu-dirty-${COMMIT_HASH}.tar.zst"
+    ARCHIVE_NAME="rvnpu-${COMMIT_DATE}-${COMMIT_HASH}-dirty.tar.zst"
 else
     echo "当前提交: $COMMIT_HASH（干净）"
-    ARCHIVE_NAME="rvnpu-${COMMIT_HASH}.tar.zst"
+    ARCHIVE_NAME="rvnpu-${COMMIT_DATE}-${COMMIT_HASH}.tar.zst"
 fi
 
 PACK_DIR="packed"
@@ -82,7 +83,7 @@ tar -c -C "$PACK_DIR" . | zstd -T0 > "$ARCHIVE_NAME"
 # 打印压缩包内容
 echo ""
 echo "压缩包内容:"
-tar --zstd -tf "$ARCHIVE_NAME" | head -60
+tar --zstd -tf "$ARCHIVE_NAME" | head -10
 FILE_COUNT=$(tar --zstd -tf "$ARCHIVE_NAME" | wc -l)
 echo "... 共 $FILE_COUNT 个文件/目录"
 echo ""
