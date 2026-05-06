@@ -2,6 +2,8 @@
 
 # 清理构建产物
 
+rm -rf bin
+
 pushd workspace/
 
     pushd llama.cpp

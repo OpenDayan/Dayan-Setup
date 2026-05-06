@@ -2,3 +2,4 @@ bin
 .emu_log
 /packed
 *.tar.zst
+operator_stats.json
