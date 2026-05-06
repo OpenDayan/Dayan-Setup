@@ -68,6 +68,10 @@ for subdir in workspace/*/; do
     fi
 done
 
+echo "[4/7] 复制指令手册..."
+cp /workspace/riscv-tensor-extension-spec/build/spec-rvt-cn.pdf "$PACK_DIR/"
+cp /workspace/riscv-tensor-extension-spec/build/spec-rvt-cn.html "$PACK_DIR/"
+
 # 5. 运行 clean.sh 清理构建产物
 echo "[5/7] 运行 clean.sh 清理构建产物..."
 (cd "$PACK_DIR" && ./clean.sh)
