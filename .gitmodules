@@ -13,3 +13,6 @@
 [submodule "workspace/npu-runtime"]
 	path = workspace/npu-runtime
 	url = https://gitservice.cstcloud.cn/r-project/npu-runtime.git
+[submodule "workspace/llama.cpp"]
+	path = workspace/llama.cpp
+	url = https://gitservice.cstcloud.cn/r-project/llama.cpp.git
