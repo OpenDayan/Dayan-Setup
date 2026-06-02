@@ -6,9 +6,9 @@
 
 ```
 ├── 0.依赖说明.md             # 依赖环境安装说明
-├── 1.setup_test.sh          # 编译张量指令测试程序
-├── 2.compile_kernels.sh     # 编译 RVT 仿真器 (rvtng-cmodel)
-├── 3.compile_emu.sh         # 编译仿真器运行时环境
+├── 1.init_repo.sh           # 初始化 workspace 子仓库
+├── 2.compile_kernels.sh     # 编译张量指令测试程序
+├── 3.compile_emu.sh         # 编译 RVT 仿真器 (rvtng-cmodel)
 ├── 4.compile_qemu.sh        # 编译 QEMU 模拟器
 ├── 5.compile_firmware.sh    # 编译 NPU 固件 (bootrom)
 ├── 6.0.run_emu_noruntime.sh # 启动仿真器(无运行时模式)
