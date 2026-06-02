@@ -1,18 +1,18 @@
 [submodule "workspace/npu-qemu"]
 	path = workspace/npu-qemu
-	url = https://gitservice.cstcloud.cn/r-project/npu-qemu.git
+	url = ../npu-qemu.git
 [submodule "workspace/rvtng-cmodel"]
 	path = workspace/rvtng-cmodel
-	url = https://gitservice.cstcloud.cn/r-project/rvtng-cmodel.git
+	url = ../rvtng-cmodel.git
 [submodule "workspace/npu-kernels"]
 	path = workspace/npu-kernels
-	url = https://gitservice.cstcloud.cn/r-project/npu-kernels.git
+	url = ../npu-kernels.git
 [submodule "workspace/npu-firmware"]
 	path = workspace/npu-firmware
-	url = https://gitservice.cstcloud.cn/r-project/npu-firmware.git
+	url = ../npu-firmware.git
 [submodule "workspace/npu-runtime"]
 	path = workspace/npu-runtime
-	url = https://gitservice.cstcloud.cn/r-project/npu-runtime.git
+	url = ../npu-runtime.git
 [submodule "workspace/llama.cpp"]
 	path = workspace/llama.cpp
-	url = https://gitservice.cstcloud.cn/r-project/llama.cpp.git
+	url = ../llama.cpp.git
