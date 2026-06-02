@@ -13,6 +13,7 @@
 ├── 5.compile_firmware.sh    # 编译 NPU 固件 (bootrom)
 ├── 6.0.run_emu_noruntime.sh # 启动仿真器(无运行时模式)
 ├── 6.0.run_emu.sh           # 启动仿真器
+├── 6.1.run_gdb_noruntime.sh # 启动 GDB 调试(无运行时模式)
 ├── 6.1.run_gdb.sh           # 启动 GDB 调试
 ├── 7.compile_llama.cpp.sh   # 构建 llama.cpp 大模型推理框架
 ├── 8.0.run_emu.sh           # 启动仿真器(不等待调试器挂载)
@@ -45,7 +46,7 @@
 ```
 
 使用 gdb-multiarch 连接到运行中的仿真器进行远程调试。
-默认会在 `test_elem_add_fp32_kernel` 函数处设置断点并启动执行。
+默认会在 `kernel_add_fp32` 函数处设置断点并启动执行。
 
 ## 大模型推理示例运行
 
